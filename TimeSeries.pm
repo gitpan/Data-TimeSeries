@@ -13,7 +13,7 @@ our @ISA = qw(Exporter);
 # names by default without a very good reason. Use EXPORT_OK instead.
 # Do not simply export all your public functions/methods/constants.
 
-# This allows declaration	use TimeSeries ':all';
+# This allows declaration	use Data::TimeSeries ':all';
 # If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
 # will save memory.
 our %EXPORT_TAGS = ( 'all' => [ qw( ) ] );
@@ -21,15 +21,15 @@ our %EXPORT_TAGS = ( 'all' => [ qw( ) ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw( );
-our $VERSION = '0.52';
+our $VERSION = '0.53';
 
 =head1 NAME
 
-Data::TimeSeries - Perl extension for Manipulation of Time Series of numbers. TimeSeries supports all the periods of ChronoKey.
+Data::TimeSeries - Perl extension for Manipulation of Time Series of numbers. Data::TimeSeries supports all the periods of ChronoKey.
 
 =head1 SYNOPSIS
 
-  use TimeSeries;
+  use Data::TimeSeries;
 
   my $start =Data::TimeSeries::ChronoKey::new(Data::TimeSeries::ChronoKey::WEEK, "2004W48");
   my $stop =Data::TimeSeries::ChronoKey::new(Data::TimeSeries::ChronoKey::WEEK, "2005W02");
@@ -214,7 +214,7 @@ sub new
    {
       my ($period, $hashSeries, $method)=@_;
       my @keyDates = keys %$hashSeries;
-      my @sortedDates=sort TimeSeries::compare_dates  @keyDates;
+      my @sortedDates=sort Data::TimeSeries::compare_dates  @keyDates;
       my @values;
       #Sort values by the dates order
       for (my $i=0;$i<scalar(@sortedDates);$i++)
@@ -706,24 +706,24 @@ The C<getCalcLen> method is used to get the number of periods from the start and
 
 =item C<addPoint>
 
- $ts->addPoint(TimeSeries::FIRST, 10.00);
- $ts->addPoint(TimeSeries::LAST, 15.00);
+ $ts->addPoint(Data::TimeSeries::FIRST, 10.00);
+ $ts->addPoint(Data::TimeSeries::LAST, 15.00);
  $ts->addPoint($ck, 12.00);
 
 C<addPoint> Method allows you to add a new point to the beginning or end of a timeseries.  Or you can add it somewhere within the series. The ChronoKey ($ck) must be within the existing range.  The series will be stretched forward to accomodate the new point.
 
 =item C<removePoint>
 
- $ts->removePoint(TimeSeries::FIRST);
- $ts->removePoint(TimeSeries::LAST);
+ $ts->removePoint(Data::TimeSeries::FIRST);
+ $ts->removePoint(Data::TimeSeries::LAST);
  $ts->removePoint($ck);
 
 The inverse of addPoint.  Allows you to remove the first, last or a cnter point.
 
 =item C<getPoint>
 
- $ts->getPoint(TimeSeries::FIRST);
- $ts->getPoint(TimeSeries::LAST);
+ $ts->getPoint(Data::TimeSeries::FIRST);
+ $ts->getPoint(Data::TimeSeries::LAST);
  $ts->removePoint($ck);
 
 C<getPoint> gets the point at the specified position.
