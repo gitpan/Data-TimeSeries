@@ -744,7 +744,6 @@ C<shift> shifts the time series by $units number of periods.
 
  $ts->seasonalize()
 
-TODO
 
 =item C<normalize>
 
@@ -779,6 +778,12 @@ Creates a copy of the time series.
 
 Runs an operation on every item in the series.
 
+TODO
+=item C<regression>
+
+($slope, $constant)=$ts->regression();
+
+ Runs a regression algorithm on a time series.
 
 
 =head1 DESCRIPTION

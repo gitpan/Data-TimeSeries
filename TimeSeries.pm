@@ -25,7 +25,7 @@ our $VERSION = '0.50';
 
 =head1 NAME
 
-TimeSeries - Perl extension for Manipulation of Time Series of numbers. TimeSeries supports all the periods of ChronoKey.
+Data::TimeSeries - Perl extension for Manipulation of Time Series of numbers. TimeSeries supports all the periods of ChronoKey.
 
 =head1 SYNOPSIS
 
